@@ -7,6 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp)
 find_package(vector_arithmetic REQUIRED)
 
 add_executable(moving_vector_average src/moving_vector_average.cpp)
@@ -15,6 +16,7 @@ target_include_directories(moving_vector_average PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(moving_vector_average PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(moving_vector_average
+  rclcpp
   vector_arithmetic
 )
 

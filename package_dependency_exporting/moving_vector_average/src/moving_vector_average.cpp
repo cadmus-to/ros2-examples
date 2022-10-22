@@ -22,7 +22,7 @@ class MovingVectorAverageNode : public rclcpp::Node {
   void handle_msg(const geometry_msgs::msg::Vector3& msg) {
     vectors_.emplace_back(msg);
 
-    while (vectors_.size() > get_parameter("window_size").get_value<int>()) {
+    while (vectors_.size() > static_cast<size_t>(get_parameter("window_size").get_value<int>())) {
       vectors_.pop_front();
     }
 
@@ -33,7 +33,7 @@ class MovingVectorAverageNode : public rclcpp::Node {
   rclcpp::Subscription<geometry_msgs::msg::Vector3>::SharedPtr subscription_;
 
   std::deque<geometry_msgs::msg::Vector3> vectors_;
-}
+};
 
 int main(int argc, char ** argv) {
   rclcpp::init(argc, argv);
