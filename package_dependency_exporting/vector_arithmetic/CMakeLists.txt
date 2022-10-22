@@ -29,7 +29,7 @@ install(
 )
 install(
   TARGETS vector_arithmetic
-  EXPORT ${PROJECT_NAME}
+  EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -53,7 +53,7 @@ ament_export_libraries(
   vector_arithmetic
 )
 ament_export_targets(
-  ${PROJECT_NAME}
+  export_${PROJECT_NAME}
 )
 ament_export_dependencies(
   geometry_msgs_arithmetic
